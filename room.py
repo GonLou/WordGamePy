@@ -1,25 +1,27 @@
 import json
 
+"""
 def get_room(id):
 	r = None
 	with open(str(id)+".json", "r") as f:
-		jsontext = fread()
+		jsontext = f.read()
 		d = json.loads(jsontext)
 		d['id'] = id
 		r = Room(**d)
-	return r
+		
+	return r"""
 
 class Room():
-	def __init__(self, id=0, name="A Room", description="An empty room", neighbours={}):
+	def __init__(self, id=0, name="A room", description="An empty room", neighbours={}):
 		self.id = id
 		self.name = name
 		self.description = description
 		self.neighbours = neighbours
 		
 	def _neighbour(self, direction):
-		if direction in self.neighbours
+		if direction in self.neighbours:
 			return self.neighbours[direction]
-		else
+		else:
 			return None
 	
 	def north(self):
