@@ -14,11 +14,18 @@ class Game(cmd.Cmd):
 		
 		#doc = gc.open_by_url('https://docs.google.com/spreadsheets/d/1Z24N7mSTCwnemRWJzFwy86Fepv6Nw0xrH5ky4x0bY04/edit?usp=sharing')
 		
-		wb2 = load_workbook('WordGamePyData.xlsx')
-		print wb2.get_sheet_names()
+		excel_load = load_workbook('WordGamePyData.xlsx')
+		
+		sheet_ranges = excel_load['Sheet1']
+		print(sheet_ranges['A2'].value)
+
+		print excel_load.get_sheet_names()
 		#['Sheet2', 'New Title', 'Sheet1']
 		
-		self.loc = room.Room(id=1, name="Hall", description="asasdad", neighbours={'w':2})
+		self.loc = room.Room(id=1, name=sheet_ranges['A2'].value, description=sheet_ranges['B2'].value, neighbours={'n':sheet_ranges['C2'].value,
+																													's':sheet_ranges['D2'].value,
+																													'e':sheet_ranges['E2'].value,
+																													'w':sheet_ranges['F2'].value})
 		self.look()
 		
 	def move(self, dir):
@@ -26,7 +33,18 @@ class Game(cmd.Cmd):
 		if newroom is None:
 			print("Hummm that is not the way!")
 		else:
-			""""self.loc = get_room(newroom)"""
+			excel_load = load_workbook('WordGamePyData.xlsx')
+			sheet_ranges = excel_load['Sheet1']
+			cellA = "A"+str(int(newroom)+1)
+			cellB = "B"+str(int(newroom)+1)
+			cellC = "C"+str(int(newroom)+1)
+			cellD = "D"+str(int(newroom)+1)
+			cellE = "E"+str(int(newroom)+1)
+			cellF = "F"+str(int(newroom)+1)
+			self.loc = room.Room(id=newroom, name=sheet_ranges[cellA].value, description=sheet_ranges[cellB].value, neighbours={'n':sheet_ranges[cellC].value,
+																																's':sheet_ranges[cellD].value,
+																																'e':sheet_ranges[cellE].value,
+																																'w':sheet_ranges[cellF].value})
 			self.look()
 	
 	def look(self):
