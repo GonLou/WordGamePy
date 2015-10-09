@@ -1,18 +1,5 @@
-import json
-
-"""
-def get_room(id):
-	r = None
-	with open(str(id)+".json", "r") as f:
-		jsontext = f.read()
-		d = json.loads(jsontext)
-		d['id'] = id
-		r = Room(**d)
-		
-	return r"""
-
 class Room():
-	def __init__(self, id=0, name="A room", description="An empty room", neighbours={}):
+	def __init__(self, id=0, name="A chamber", description="An empty chamber", neighbours={}):
 		self.id = id
 		self.name = name
 		self.description = description
