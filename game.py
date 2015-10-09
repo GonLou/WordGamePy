@@ -12,15 +12,9 @@ class Game(cmd.Cmd):
 	def __init__(self):
 		cmd.Cmd.__init__(self)
 		
-		#doc = gc.open_by_url('https://docs.google.com/spreadsheets/d/1Z24N7mSTCwnemRWJzFwy86Fepv6Nw0xrH5ky4x0bY04/edit?usp=sharing')
-		
 		excel_load = load_workbook('WordGamePyData.xlsx')
 		
 		sheet_ranges = excel_load['Sheet1']
-		print(sheet_ranges['A2'].value)
-
-		print excel_load.get_sheet_names()
-		#['Sheet2', 'New Title', 'Sheet1']
 		
 		self.loc = room.Room(id=1, name=sheet_ranges['A2'].value, description=sheet_ranges['B2'].value, neighbours={'n':sheet_ranges['C2'].value,
 																													's':sheet_ranges['D2'].value,

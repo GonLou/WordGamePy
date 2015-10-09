@@ -1,6 +1,13 @@
 A word game adventure that can be adapted by anyone to tell their one story.
 Write, link sections and have fun!
 
+Things to improve:
+- create a proper list to contain all excel file variables
+- connect to a google excel spreadsheet
+- life bar;
+- items to collect
+- fight mummies
+
 Sources:
 Talk by Jeffrey Armstrong at Youtube channel Next day Video
 https://www.youtube.com/watch?v=8CDePunJlck
